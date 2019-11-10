@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+}
+
+<script src="~/js/login.js" type="text/javascript"></script>
+<div class="row">
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { name = "frm_signup", id = "frm_login", @class = "form-login logreg-forms" }))
+    {
+        <h1 class="h3 mb-3 font-weight-normal text-center"> Login </h1>
+        <hr>
+        <input type="text" id="user_login" name="user_login" class="form-control mb-1" placeholder="Email hoặc số điện thoại" required="" autofocus="">
+        <input type="password" name="password" id="inputPassword" class="form-control mb-3" placeholder="Mật khẩu" required="">
+
+        <button class="btn btn-success btn-block" id="btn_login"><i class="fas fa-sign-in-alt"></i>Đăng nhập</button>
+        <a href="@Url.Action("ForgotPassword", "Account")" id="btn_forgot_pswd">Quên mật khẩu?</a>
+        <hr>
+        <a href="@Url.Action("Register", "Account")" class="btn btn-primary btn-block text-white" id="btn_register"><i class="fas fa-user-plus"></i>Tạo tài khoản mới</a>
+    }
+</div>
+

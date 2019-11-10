@@ -1,0 +1,114 @@
+﻿@model Pet_Management.Models.USER
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="">
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { name = "frm_signup", id = "frm_signup", @class = "form-horizontal frm-signup", @role = "form" }))
+    {
+        <h2 class="text-center">Đăng ký</h2>
+        <hr>
+        <div class="control-group">
+            <label class="col-sm-12 col-md-3 control-label" for="username">Username</label>
+            <div class="col-sm-12 col-md-9 float-right">
+                @Html.TextBoxFor(m => m.user_name, new
+                {
+                        type = "text",
+                        @class = "form-control",
+                        @placeholder = "Tên đầy đủ",
+                        required = "",
+                    autofocus = ""
+                })
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="col-sm-12 col-md-3 control-label" for="username">Email</label>
+            <div class="col-sm-12 col-md-9 float-right">
+                @Html.TextBoxFor(m => m.email, new
+                {
+                        type = "email",
+                        @class = "form-control",
+                        @placeholder = "Email",
+                        required = "",
+                        autofocus = ""
+                })
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="col-sm-12 col-md-3 control-label" for="username">Số điện thoại</label>
+            <div class="col-sm-12 col-md-9 float-right">
+                @Html.TextBoxFor(m => m.phone, new
+                {
+                        type = "text",
+                        @class = "form-control",
+                        @placeholder = "Số điện thoại",
+                        required = "",
+                        autofocus = ""
+                })
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="col-sm-12 col-md-3 control-label" for="username">Mật khẩu</label>
+            <div class="col-sm-12 col-md-9 float-right">
+                @Html.TextBoxFor(m => m.password, new
+                {
+                        type = "password",
+                        @class = "form-control",
+                        @placeholder = "Mật khẩu",
+                        required = "",
+                        autofocus = ""
+                })
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="col-sm-12 col-md-3 control-label" for="username">Nhập lại mật khẩu</label>
+            <div class="col-sm-12 col-md-9 float-right">
+                @Html.TextBoxFor(m => m.repPassword, new
+                {
+                        type = "password",
+                        @class = "form-control",
+                        @placeholder = "Nhập lại mật khẩu",
+                        required = "",
+                        autofocus = ""
+                })
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="col-sm-12 col-md-3 control-label" for="username">Ngày sinh</label>
+            <div class="col-sm-12 col-md-9 float-right">
+                @Html.TextBoxFor(m => m.birthday, "{0:yyyy-MM-dd}", new
+                {
+                        type = "date",
+                        @class = "form-control",
+                        @placeholder = "Ngày sinh",
+                        required = "",
+                        autofocus = ""
+                })
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="col-sm-12 col-md-3 control-label" for="username">Giới tính</label>
+            <div class="col-sm-12 col-md-9 float-right">
+                <div class="controls d-inline-block float-left col-6">
+                    @Html.RadioButtonFor(m => m.gender, '0', new { @checked = true })
+                    <p class="control-label">Nam</p>
+                </div>
+                <div class="controls d-inline-block float-right col-6">
+                    @Html.RadioButtonFor(m => m.gender, '1')
+                    <p class="control-label">Nữ</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="control-group">
+            <button class="btn btn-primary btn-block" type="submit"><i class="fas fa-user-plus"></i> Đăng ký</button>
+            <a href="@Url.Action("ForgotPassword", "Account")" class="float-left"><i class="fas fa-angle-left"></i> Quên mật khẩu?</a>
+            <a href="@Url.Action("Login", "Account")" class="float-right"><i class="fas fa-angle-left"></i> Đăng nhập</a>
+        </div>
+    }
+</div>
+
