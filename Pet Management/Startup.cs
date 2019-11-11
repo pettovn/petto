@@ -2,15 +2,12 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Linq;
-using Microsoft.AspNetCore.Mvc.Razor;
+using Pet_Management.Common;
 
 namespace Pet_Management
 {
@@ -27,14 +24,22 @@ namespace Pet_Management
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            //services.Configure<RazorViewEngineOptions>(options =>
-            //{
-            //    options.AreaViewLocationFormats.Clear();
-            //    options.AreaViewLocationFormats.Add("/Admin/Views/{1}/{0}.cshtml");
-            //    options.AreaViewLocationFormats.Add("/Admin/Views/Shared/{0}.cshtml");
-            //    options.AreaViewLocationFormats.Add("/Views/Shared/{0}.cshtml");
-            //});
             services.AddMvc(option => option.EnableEndpointRouting = false);
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(options =>
+            {
+                options.Cookie = new CookieBuilder
+                {
+                    //Domain = "",
+                    HttpOnly = true,
+                    Name = FuncDef.COOKIE_NAME,
+                    Path = "/",
+                    SameSite = SameSiteMode.Lax,
+                    SecurePolicy = CookieSecurePolicy.SameAsRequest
+                };
+                options.LoginPath = new PathString("/Account/Login");
+                options.LogoutPath = "/Account/Logout/";
+            });
 
             // setting database connection
             services.AddDbContext<EntrySetContext>(options => options.UseSqlServer(Configuration.GetConnectionString("EntrySetContext")));
@@ -48,8 +53,6 @@ namespace Pet_Management
             {
                 var context = serviceScope.ServiceProvider.GetRequiredService<EntrySetContext>();
                 context.Database.Migrate();
-
-                //var context = serviceScope.ServiceProvider.GetRequiredService<EntrySetContext>();
                 context.Database.EnsureCreated();
             }
 
@@ -67,7 +70,7 @@ namespace Pet_Management
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -75,6 +78,9 @@ namespace Pet_Management
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapControllers();
+                endpoints.MapRazorPages();
             });
 
             app.UseMvc(routes =>

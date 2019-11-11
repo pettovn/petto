@@ -1,12 +1,16 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Data.Common;
-using Pet_Management;
+﻿/************************************************************************
+/* Copyright (©) 2019 PETTO SYSTEM
+/************************************************************************
+/* File Name    : EntrySetContext.cs
+/* Function     : Entity data context class
+/* Create       : LinhTran 2019/11/11
+/************************************************************************/
+using Microsoft.EntityFrameworkCore;
 using Pet_Management.Models;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
 
 public partial class EntrySetContext : DbContext
 {
+    public EntrySetContext() { }
     public EntrySetContext(DbContextOptions options) :base(options)
     {
     }
@@ -36,8 +40,10 @@ public partial class EntrySetContext : DbContext
 
     #region DB Configuring
 
-    /// <summary> Key Setting </summary>
-    /// <param name="modelBuilder"></param>
+    /// <summary>
+    /// create model
+    /// </summary>
+    /// <param name="modelBuilder">model builder</param>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<USER>().ToTable("USER");
