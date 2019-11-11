@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc.Razor;
 
 namespace Pet_Management
 {
@@ -26,6 +27,14 @@ namespace Pet_Management
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            //services.Configure<RazorViewEngineOptions>(options =>
+            //{
+            //    options.AreaViewLocationFormats.Clear();
+            //    options.AreaViewLocationFormats.Add("/Admin/Views/{1}/{0}.cshtml");
+            //    options.AreaViewLocationFormats.Add("/Admin/Views/Shared/{0}.cshtml");
+            //    options.AreaViewLocationFormats.Add("/Views/Shared/{0}.cshtml");
+            //});
+            services.AddMvc(option => option.EnableEndpointRouting = false);
 
             // setting database connection
             services.AddDbContext<EntrySetContext>(options => options.UseSqlServer(Configuration.GetConnectionString("EntrySetContext")));
@@ -66,6 +75,17 @@ namespace Pet_Management
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                  name: "Admin",
+                  template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+                routes.MapRoute(
+                   name: "default",
+                   template: "{controller=Home}/{action=Index}/{id?}"); 
             });
         }
     }
