@@ -1,7 +1,7 @@
 ﻿/************************************************************************
 /* Copyright (©) 2019 PETTO SYSTEM
 /************************************************************************
-/* File Name    : PetRepository.cs
+/* File Name    : Repository.cs
 /* Function     : Reponsitory dataset
 /* Create       : LinhTran 2019/11/11
 /************************************************************************/
@@ -11,7 +11,7 @@ using System.Linq;
 
 namespace Pet_Management.Models
 {
-    public class PetRepository
+    public class Repository
     {
         private EntrySetContext _db = new EntrySetContext();
 
