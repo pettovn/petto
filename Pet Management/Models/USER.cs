@@ -14,21 +14,25 @@ namespace Pet_Management.Models
         /// <summary> user_name <summary>
         [Required]
         [Display(Name = "Tên hiển thị")]
+        [MaxLength(50)]
         public String user_name { get; set; }
 
         /// <summary> phone <summary>
         [Required]
         [Display(Name = "Số điện thoại")]
         [RegularExpression("^[0-9]+$", ErrorMessage = "123")]
+        [MaxLength(12)]
         public String phone { get; set; }
 
         /// <summary> email <summary>
         [Required]
         [Display(Name = "Email")]
+        [MaxLength(254)]
         public String email { get; set; }
 
         /// <summary> address <summary>
         [Display(Name = "Địa chỉ")]
+        [MaxLength(255)]
         public String address { get; set; }
 
         /// <summary> birthday <summary>
@@ -38,10 +42,12 @@ namespace Pet_Management.Models
 
         /// <summary> gender <summary>
         [Display(Name = "Giới tính")]
+        [MaxLength(1)]
         public Int16 gender { get; set; }
 
         /// <summary> url_facebook <summary>
         [Display(Name = "Url facebook")]
+        [MaxLength(255)]
         public String facebook { get; set; }
 
         /// <summary> password <summary>
@@ -51,14 +57,17 @@ namespace Pet_Management.Models
 
         /// <summary> classification (0: user, 1: customer) <summary>
         [Required]
+        [MaxLength(3)]
         public Int16 classification { get; set; }
 
         /// <summary> role (0: admin, 1: author, 2: subscriber) <summary>
         [Required]
+        [MaxLength(3)]
         public Int16 role { get; set; }
 
         /// <summary> status (0: comfirmed, 1: waitting, 2: unknown) <summary>
         [Required]
+        [MaxLength(3)]
         public Int16 status { get; set; }
 
         #region References

@@ -13,10 +13,12 @@ namespace Pet_Management.Models
 
         /// <summary> image_name <summary>
         [Required]
+        [MaxLength(50)]
         public String image_name { get; set; }
 
         /// <summary> path <summary>
         [Required]
+        [MaxLength(255)]
         public String path { get; set; }
 
         public Int64 crt_usr { get; set; }

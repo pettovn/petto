@@ -8,17 +8,11 @@ namespace Pet_Management.Models
     {
         /// <summary> pet_id (PET) <summary>
         [Required]
-        [Key, Column(Order = 0)]
         public Int64 pet_id { get; set; }
 
         /// <summary> image_id (IMAGE) <summary>
         [Required]
-        [Key, Column(Order = 1)]
         public Int64 img_id { get; set; }
-
-        /// <summary> service_id (MSERVICE) <summary>
-        [Required]
-        public Int64 service_id { get; set; }
 
         public Int64 crt_usr { get; set; }
         public DateTime crt_dt { get; set; }

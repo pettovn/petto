@@ -9,11 +9,12 @@ namespace Pet_Management.Models
         /// <summary> pet_id <summary>
         [Required]
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Int64 petID { get; set; }
+        public Int64 pet_id { get; set; }
 
         /// <summary> pet_name <summary>
         [Display(Name = "Tên Pet")]
-        public String petName { get; set; }
+        [MaxLength(50)]
+        public String pet_name { get; set; }
 
         /// <summary> birthday <summary>
         [Display(Name = "Ngày sinh")]
@@ -23,6 +24,7 @@ namespace Pet_Management.Models
         /// <summary> gender <summary>
         [Required]
         [Display(Name = "Giới tính")]
+        [MaxLength(1)]
         public Int16 gender { get; set; }
 
         /// <summary> price <summary>
@@ -32,10 +34,12 @@ namespace Pet_Management.Models
         #region References
         /// <summary> d_type_id (DPETTYPE) <summary>
         [Required]
-        public Int32 type { get; set; }
+        [MaxLength(5)]
+        public Int16 type { get; set; }
 
         /// <summary> color_id (MFURCOLOR) <summary>
-        public Int64 color { get; set; }
+        [MaxLength(5)]
+        public Int16 color { get; set; }
 
         /// <summary> owner_id (TUSER.user_id) <summary>
         [Required]

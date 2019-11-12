@@ -9,15 +9,17 @@ namespace Pet_Management.Models
         /// <summary> video_id <summary>
         [Required]
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Int64 vid_id { get; set; }
+        public Int64 video_id { get; set; }
 
 
         /// <summary> video_name <summary>
         [Required]
-        public String vid_name { get; set; }
+        [MaxLength(50)]
+        public String video_name { get; set; }
 
         /// <summary> url path <summary>
         [Required]
+        [MaxLength(255)]
         public String path { get; set; }
 
         public Int64 crt_usr { get; set; }

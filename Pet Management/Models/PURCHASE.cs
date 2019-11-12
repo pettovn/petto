@@ -14,11 +14,13 @@ namespace Pet_Management.Models
         /// <summary> title <summary>
         [Required]
         [Display(Name = "Tiêu đề")]
+        [MaxLength(50)]
         public String title { get; set; }
 
         /// <summary> number <summary>
         [Required]
         [Display(Name = "Số lượng")]
+        [MaxLength(3)]
         public Int16 number { get; set; }
 
         /// <summary> price <summary>
@@ -29,6 +31,7 @@ namespace Pet_Management.Models
         /// <summary> address <summary>
         [Required]
         [Display(Name = "Địa chỉ người bán")]
+        [MaxLength(255)]
         public String address { get; set; }
 
         /// <summary> note <summary>

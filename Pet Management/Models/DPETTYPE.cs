@@ -9,15 +9,18 @@ namespace Pet_Management.Models
         /// <summary> type id <summary>
         [Required]
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [MaxLength(5)]
         public Int16 d_type_id { get; set; }
 
         /// <summary> type name <summary>
         [Required]
         [Display(Name = "Tên loại thú cưng")]
+        [MaxLength(50)]
         public String d_type_name { get; set; }
 
         /// <summary> type name <summary>
         [Required]
+        [MaxLength(3)]
         public Int16 m_type_id { get; set; }
 
         public Int64 crt_usr { get; set; }
