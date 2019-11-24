@@ -1,0 +1,42 @@
+﻿.icon {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+}
+
+.location-icon {
+    background: url(../icon/location.png) no-repeat;
+    background-size: contain;
+}
+
+.cat-icon {
+    background: url(../icon/cat.png) no-repeat;
+    background-size: contain;
+}
+
+.dog-icon {
+    background: url(../icon/dog.png) no-repeat;
+    background-size: contain;
+}
+
+.bird-icon {
+    background: url(../icon/bird.png) no-repeat;
+    background-size: contain;
+}
+
+.calendar-icon {
+    background: url(../icon/calendar.png) no-repeat;
+    background-size: contain;
+}
+.tick-icon {
+    background: url(../icon/tick.png) no-repeat;
+    background-size: contain;
+}
+.user-icon {
+    background: url(../icon/user.png) no-repeat;
+    background-size: contain;
+}
+.check-mark-icon {
+    background: url(../icon/check-mark.png) no-repeat;
+    background-size: contain;
+}

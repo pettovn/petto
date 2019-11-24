@@ -1,8 +1,175 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<div class="col-12 content-header">
+    <h4>Kênh Mua Bán Thú Cưng Số 1 Việt Nam</h4>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+<div class="col-12 home-search">
+    <h3>Tìm Kiếm Nhanh</h3>
+    <div class="dropdown search-item">
+        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+            Toàn Quốc
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu search-content" id="myDropdown" role="menu" aria-labelledby="menu1">
+            <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"></a></li>
+        </ul>
+    </div>
+
+    <div class="dropdown search-item">
+        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+            Quận / Huyện
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
+        </ul>
+    </div>
+
+    <div class="dropdown search-item">
+        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+            Mèo
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
+        </ul>
+    </div>
+    <div class="dropdown search-item">
+        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+            Mức giá
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
+        </ul>
+    </div>
+    <div class="dropdown search-item">
+        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+            Tuổi
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
+        </ul>
+    </div>
+    <div class="dropdown search-item">
+        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+            Nguồn Gốc
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
+        </ul>
+    </div>
+    <button class="btn btn-primary">Tìm ngay</button>
+    <div class="clearfix"></div>
+</div>
+<div class="col-lg-9 col-12 sliderbar-left">
+    @for (int i = 0; i < 10; i++)
+    {
+    <div class="post border-top">
+        <div class="post-thumbnail">
+            <img alt="" src="~/resource/cat1.jpg" />
+        </div>
+        <div class="post-content">
+            <h3 class="post-title">
+                <a href="#">Mèo Anh Lông Ngắn 3 Tháng Tuổi</a>
+            </h3>
+            <div class="post-line">
+                <div class="post-left">
+                    <div class="icon cat-icon"></div>
+                    <span class="pet-type p-2">Mèo anh lông ngắn</span>
+                </div>
+                <div class="post-right">
+                    <div class="icon tick-icon"></div>
+                    <span class="pet-old p-2">24 tháng tuổi</span>
+                </div>
+            </div>
+            <div class="post-line">
+                <div class="post-left">
+                    <div class="icon tick-icon"></div>
+                    <span class="pet-weight p-2">Cân nặng: 4kg</span>
+                </div>
+                <div class="post-right">
+                    <div class="icon tick-icon"></div>
+                    <span class="pet-gender p-2">Giới tính: Cái</span>
+                </div>
+            </div>
+            <div class="post-line">
+                <div class="post-left">
+                    <div class="icon tick-icon"></div>
+                    <span class="pet-color p-2">Màu lông: Bicolor</span>
+                </div>
+                <div class="post-right">
+                    <div class="icon tick-icon"></div>
+                    <span class="pet-origin p-2">Sinh sản trong nước</span>
+                </div>
+            </div>
+            <div class="post-line">
+                <span class="pet-price p-2">5.000.000</span>
+            </div>
+            <div class="post-line">
+                <div class="icon user-icon"></div>
+                <span class="post-user p-2">Bành Thị Ếch</span>
+                <div class="icon location-icon"></div>
+                <span class="post-address p-2">Hà Nội</span>
+                <div class="icon calendar-icon"></div>
+                <span class="post-date p-2">Ngày đăng: Hôm nay</span>
+            </div>
+        </div>
+     </div>
+    }
+</div>
+<div class="col-lg-3 sliderbar-right">
+   <div class="parent">
+       <img src="~/Images/dog-house.jpg" />
+       <h1>RIGHT</h1>
+   </div>
+</div>
+<script>
+    function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function filterFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("myDropdown");
+  a = div.getElementsByTagName("a");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+}
+</script>

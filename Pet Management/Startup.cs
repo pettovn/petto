@@ -51,9 +51,9 @@ namespace Pet_Management
             // auto create database in Entity Framework Core through EntrySetContext class
             using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
             {
-                var context = serviceScope.ServiceProvider.GetRequiredService<EntrySetContext>();
-                context.Database.Migrate();
-                context.Database.EnsureCreated();
+                //var context = serviceScope.ServiceProvider.GetRequiredService<EntrySetContext>();
+                //context.Database.Migrate();
+                //context.Database.EnsureCreated();
             }
 
             if (env.IsDevelopment())
